@@ -538,6 +538,7 @@ footer {
 .carousel-3d-card {
     width: 100%;
     height: 100%;
+    margin-top: 50px;
     background: rgba(255, 255, 255, 0.2);
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 20px;
