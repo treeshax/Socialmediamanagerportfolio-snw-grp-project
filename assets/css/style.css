@@ -1,10 +1,10 @@
 :root {
-    --bg-start: #042a5b;
-    --bg-end: #0fb27a;
+    --bg-start: #480048;
+    --bg-end: #C04848;
     --glass: rgba(255, 255, 255, 0.06);
     --glass-border: rgba(255, 255, 255, 0.12);
-    --accent: #7ef0c1;
-    --muted: rgba(255, 255, 255, 0.75);
+    --accent: #ffffff;
+    --muted: #ffffff;
     --white: #ffffff;
     --shadow: 0 10px 30px rgba(2, 10, 35, 0.45);
 
@@ -33,7 +33,12 @@
 }
 
 body {
-    background: linear-gradient(135deg, var(--bg-start) 0%, var(--bg-end) 100%);
+    background: #C04848;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #480048, #C04848);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #480048, #C04848);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     font-family: var(--font-body);
     color: var(--white);
     min-height: 100vh;
@@ -142,7 +147,7 @@ h6 {
 
 .navbar.scrolled {
     padding: var(--space-s) 0;
-    background: rgba(4, 42, 91, 0.85);
+    background: rgba(72, 0, 72, 0.85);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--glass-border);
 }
@@ -219,6 +224,12 @@ footer {
     margin-bottom: var(--space-l);
 }
 
+.footer-content ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-s);
+}
+
 .social-icons {
     display: flex;
     gap: var(--space-m);
@@ -245,7 +256,7 @@ footer {
         right: -100%;
         width: 100%;
         height: calc(100vh - 70px);
-        background: rgba(4, 42, 91, 0.95);
+        background: rgba(72, 0, 72, 0.95);
         backdrop-filter: blur(15px);
         flex-direction: column;
         justify-content: center;
@@ -263,5 +274,357 @@ footer {
 
     h1 {
         font-size: 2.5rem;
+    }
+}
+
+/* About Page Styles */
+.about-hero {
+    padding: var(--space-xxl) 0;
+    text-align: center;
+}
+
+.about-hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about-intro {
+    font-size: 1.1rem;
+    color: var(--muted);
+    margin-bottom: var(--space-m);
+}
+
+/* Timeline Section */
+.timeline-section {
+    padding: var(--space-xl) 0;
+}
+
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: var(--space-xl) auto;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 2px;
+    height: 100%;
+    background: var(--glass-border);
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    position: relative;
+    width: 50%;
+    padding: 0 var(--space-l);
+    margin-bottom: var(--space-xl);
+}
+
+.timeline-item:nth-child(odd) {
+    left: 0;
+    text-align: right;
+}
+
+.timeline-item:nth-child(even) {
+    left: 50%;
+    text-align: left;
+}
+
+.timeline-marker {
+    position: absolute;
+    top: 0;
+    width: 16px;
+    height: 16px;
+    background: var(--accent);
+    border-radius: 50%;
+    border: 4px solid rgba(72, 0, 72, 0.5);
+    z-index: 1;
+}
+
+.timeline-item:nth-child(odd) .timeline-marker {
+    right: -8px;
+}
+
+.timeline-item:nth-child(even) .timeline-marker {
+    left: -8px;
+}
+
+.timeline-year {
+    color: var(--accent);
+    font-weight: 700;
+    margin-bottom: var(--space-xs);
+}
+
+.timeline-title {
+    font-size: 1.25rem;
+    color: var(--white);
+    margin-bottom: var(--space-xs);
+}
+
+.timeline-desc {
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
+/* Tools Section */
+.tools-section {
+    padding: var(--space-xl) 0;
+}
+
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: var(--space-m);
+    margin-top: var(--space-l);
+}
+
+.tool-card {
+    text-align: center;
+    padding: var(--space-m);
+    transition: transform var(--transition-fast);
+}
+
+.tool-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent);
+}
+
+.tool-icon {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: var(--space-s);
+}
+
+.tool-name {
+    color: var(--white);
+    font-weight: 500;
+}
+
+/* Process Section */
+.process-section {
+    padding: var(--space-xl) 0;
+}
+
+.process-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-l);
+    margin-top: var(--space-l);
+}
+
+.process-step {
+    position: relative;
+    padding: var(--space-l);
+}
+
+.step-number {
+    font-size: 3rem;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.05);
+    position: absolute;
+    top: var(--space-s);
+    right: var(--space-m);
+    line-height: 1;
+}
+
+.step-title {
+    color: var(--accent);
+    margin-bottom: var(--space-s);
+    position: relative;
+}
+
+.step-desc {
+    color: var(--muted);
+    position: relative;
+}
+
+/* Testimonials Section */
+.testimonials-section {
+    padding: var(--space-xl) 0;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-l);
+    margin-top: var(--space-l);
+}
+
+.testimonial-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.testimonial-quote {
+    font-style: italic;
+    color: var(--muted);
+    margin-bottom: var(--space-m);
+}
+
+.testimonial-author {
+    font-weight: 600;
+    color: var(--white);
+    border-top: 1px solid var(--glass-border);
+    padding-top: var(--space-s);
+}
+
+/* Responsive Styles for About Page */
+@media (max-width: 768px) {
+    .timeline::before {
+        left: 0;
+    }
+
+    .timeline-item {
+        width: 100%;
+        padding-left: var(--space-l);
+        padding-right: 0;
+        text-align: left !important;
+    }
+
+    .timeline-item:nth-child(even) {
+        left: 0;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-marker,
+    .timeline-item:nth-child(even) .timeline-marker {
+        left: -8px;
+        right: auto;
+    }
+
+    .process-steps,
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 3D Carousel Styles */
+.carousel-3d-section {
+    padding-top: var(--space-xxl);
+    padding-bottom: 160px;
+    perspective: 1000px;
+    /* overflow: hidden; Removed to prevent clipping */
+    margin-bottom: var(--space-xl);
+}
+
+.carousel-3d-container {
+    position: relative;
+    width: 300px;
+    height: 395px;
+    margin: 0 auto;
+    transform-style: preserve-3d;
+}
+
+.carousel-3d-track {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+}
+
+.carousel-3d-item {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    /* Transformation will be handled by JS */
+}
+
+.carousel-3d-card {
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    /* Base glass style override if needed */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+    /* Backface visibility important for 3D feel */
+    backface-visibility: hidden;
+}
+
+.carousel-3d-img {
+    height: 60%;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+.carousel-3d-content {
+    padding: 20px;
+    text-align: center;
+    color: #fff;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.carousel-3d-content h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: var(--accent);
+}
+
+.carousel-3d-content p {
+    margin: 5px 0 0;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.carousel-3d-controls {
+    position: absolute;
+    top: 50%;
+    width: 120%;
+    /* Wider than container to place buttons outside */
+    left: -10%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    pointer-events: none;
+    /* Let clicks pass through empty space */
+    z-index: 100;
+}
+
+.carousel-3d-btn {
+    pointer-events: auto;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-3d-btn:hover {
+    background: var(--accent);
+    color: var(--bg-start);
+    transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .carousel-3d-container {
+        width: 250px;
+        height: 345px;
+    }
+
+    .carousel-3d-controls {
+        width: 100%;
+        left: 0;
+        padding: 0 10px;
     }
 }

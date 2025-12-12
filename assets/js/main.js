@@ -3,7 +3,7 @@ const SMMPortfolio = {
         this.initMobileMenu();
         this.initScrollAnimations();
         this.initNavbarScroll();
-        this.initPortfolioFilters();
+
         this.initModals();
     },
 
@@ -52,32 +52,7 @@ const SMMPortfolio = {
         });
     },
 
-    initPortfolioFilters() {
-        const buttons = document.querySelectorAll('.filter-btn');
-        const items = document.querySelectorAll('.project-card');
 
-        if (!buttons.length) return;
-
-        buttons.forEach(btn => {
-            btn.addEventListener('click', () => {
-                buttons.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-
-                const filter = btn.getAttribute('data-filter');
-
-                items.forEach(item => {
-                    const category = item.getAttribute('data-category');
-                    if (filter === 'all' || filter === category) {
-                        item.style.display = 'block';
-                        item.style.opacity = '0';
-                        setTimeout(() => item.style.opacity = '1', 50);
-                    } else {
-                        item.style.display = 'none';
-                    }
-                });
-            });
-        });
-    },
 
     initModals() {
         window.openModal = (id) => {
